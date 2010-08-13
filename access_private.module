@@ -56,7 +56,7 @@ function access_private_load($uuid) {
  */
 function access_private_node_grants($account, $op) {
   $grants = array();
-  if ($op == 'view' && (arg(0) == 'uuid' && uuid_is_valid(arg(1)))) {
+  if ($op == 'view' && (arg(0) == 'private' && uuid_is_valid(arg(1)))) {
   	// Grant direct access to private nodes if they are access by their UUID.
     $grants['private'] = array(1);
   }
