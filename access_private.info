@@ -1,0 +1,5 @@
+name = "Access Private"
+description = "Allow accessing private nodes with a direct link."
+core = "6.x"
+dependencies[] = private
+dependencies[] = uuid

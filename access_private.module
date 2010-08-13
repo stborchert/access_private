@@ -1,0 +1,81 @@
+<?php
+// $Id$
+
+/**
+ * @file access_private.module
+ *
+ * Combine the modules private (http://drupal.org/project/private) and
+ * uuid (http://drupal.org/project/uuid) to allow access to private nodes by
+ * using their uuid.
+ */
+
+/**
+ * Implement hook_menu().
+ * @return An array of menu items.
+ */
+function access_private_menu() {
+  $items = array();
+
+  // Create dynamic menu callback to collect uuid-calls.
+  $items['private/%access_private'] = array(
+    'title callback' => 'node_page_title',
+    'title arguments' => array(1),
+    'page callback' => 'node_page_view',
+    'page arguments' => array(1),
+    'access callback' => 'node_access',
+    'access arguments' => array('view', 1),
+  );
+
+  return $items;
+}
+
+/**
+ * Load a node object based on the given UUID.
+ * @param $arg
+ *   UUID of the node.
+ * @return
+ *   The loaded node or FALSE.
+ */
+function access_private_load($uuid) {
+  if (uuid_is_valid($uuid)) {
+    $node = node_get_by_revision_uuid($uuid);
+  	return $node === FALSE ? node_get_by_uuid($uuid) : $node;
+  }
+}
+
+/**
+ * Implement hook_node_grants().
+ *
+ * @param $account
+ *   The user object whose grants are requested.
+ * @param $op
+ *   The node operation to be performed, such as "view", "update", or "delete".
+ * @return
+ *   An array whose keys are "realms" of grants such as "user" or "role", and
+ *   whose values are linear lists of grant IDs.
+ */
+function access_private_node_grants($account, $op) {
+  $grants = array();
+  if ($op == 'view' && (arg(0) == 'uuid' && uuid_is_valid(arg(1)))) {
+  	// Grant direct access to private nodes if they are access by their UUID.
+    $grants['private'] = array(1);
+  }
+  return $grants;
+}
+
+/**
+ * Implement hook_link().
+ */
+function access_private_link($type, $object, $teaser = FALSE) {
+  global $user;
+  $links = array();
+  if ($type == 'node' && isset($object->uuid)) {
+    $links['private_uuid_link'] = array(
+      'title' => t('direct link'),
+      'description' => t('Use this link to share the node with other persons.'),
+      'href' => "private/$object->uuid",
+    );
+  }
+  return $links;
+}
+
