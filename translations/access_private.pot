@@ -1,0 +1,37 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  access_private.module: n/a
+#  access_private.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-08-13 19:01+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: access_private.module:74
+msgid "direct link"
+msgstr ""
+
+#: access_private.module:75
+msgid "Use this link to share the node with other persons."
+msgstr ""
+
+#: access_private.info:0
+msgid "Access Private"
+msgstr ""
+
+#: access_private.info:0
+msgid "Allow accessing private nodes with a direct link."
+msgstr ""
+

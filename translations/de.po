@@ -1,0 +1,36 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright 2010 Stefan Borchert
+# Generated from files:
+#  access_private.module: n/a
+#  access_private.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: access_private 1.9\n"
+"POT-Creation-Date: 2010-08-13 19:01+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Stefan Borchert\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: access_private.module:74
+msgid "direct link"
+msgstr "direkter Link"
+
+#: access_private.module:75
+msgid "Use this link to share the node with other persons."
+msgstr "Dieser Link kann verwendet werden, um anderen Benutzern Zugriff auf diesen Beitrag zu gewähren."
+
+#: access_private.info:0
+msgid "Access Private"
+msgstr "Access Private"
+
+#: access_private.info:0
+msgid "Allow accessing private nodes with a direct link."
+msgstr "Erlaubt den Zugriff auf private Beiträge über einen direkten Link."
+

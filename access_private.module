@@ -2,8 +2,7 @@
 // $Id$
 
 /**
- * @file access_private.module
- *
+ * @file
  * Combine the modules private (http://drupal.org/project/private) and
  * uuid (http://drupal.org/project/uuid) to allow access to private nodes by
  * using their uuid.
@@ -39,7 +38,7 @@ function access_private_menu() {
 function access_private_load($uuid) {
   if (uuid_is_valid($uuid)) {
     $node = node_get_by_revision_uuid($uuid);
-  	return $node === FALSE ? node_get_by_uuid($uuid) : $node;
+    return $node === FALSE ? node_get_by_uuid($uuid) : $node;
   }
 }
 
@@ -57,7 +56,7 @@ function access_private_load($uuid) {
 function access_private_node_grants($account, $op) {
   $grants = array();
   if ($op == 'view' && (arg(0) == 'private' && uuid_is_valid(arg(1)))) {
-  	// Grant direct access to private nodes if they are access by their UUID.
+    // Grant direct access to private nodes if they are access by their UUID.
     $grants['private'] = array(1);
   }
   return $grants;
