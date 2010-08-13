@@ -70,7 +70,7 @@ function access_private_link($type, $object, $teaser = FALSE) {
   global $user;
   $links = array();
   if ($type == 'node' && isset($object->uuid)) {
-    $links['private_uuid_link'] = array(
+    $links['access_private_link'] = array(
       'title' => t('direct link'),
       'description' => t('Use this link to share the node with other persons.'),
       'href' => "private/$object->uuid",
